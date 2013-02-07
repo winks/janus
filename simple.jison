@@ -4,8 +4,10 @@
 \s+                     /* skip */
 [0-9]+                  return 'DIGIT'
 [a-zA-Z][a-zA-Z0-9]+    return 'VAR'
-"\"\""                  return 'STRDOUBLE'
-"'"([^\\])+"'"          return 'STRSINGLE'
+"''"                         return 'EMPTYSINGLEQUOTE'
+"\"\""                       return 'EMPTYDOUBLEQUOTE'
+"'"(\\\\|\\\'|[^\\\'])+"'"   return 'STRSINGLE'
+"\""(\\\\|\\\"|[^\\\"])+"\"" return 'STRDOUBLE'
 "-"         return '-'
 "!="        return '!='
 "=="        return '=='
@@ -54,9 +56,11 @@ e
     | e '<' e
         {$$ = $1 < $3;}
     | e '||' e
-        {console.log($e1+" "+" "+$e2); $$ = ['(',$e1,')', '||', '(', $e2,')'];}
+        {console.log($e1+" "+" "+$e2);
+         $$ = ['(',$e1,')', '||', '(', $e2,')'];}
     | e '&&' e
-        {console.log($e1+" "+$e2); $$ = $e1 && $e2;}
+        {console.log($e1+" "+$e2);
+         $$ = $e1 && $e2;}
     | '-' e %prec UMINUS
         {$$ = -$2;}
     | '(' e ')'
@@ -64,9 +68,18 @@ e
     | DIGIT
         {$$ = Number(yytext);}
     | VAR
-        {console.log(Math.PI); $$ = Math.PI;}
-    | STRDOUBLE
-        {console.log('"_'+$STRDOUBLE); $$ = $STRDOUBLE;}
+        {console.log("  VAR:"+Math.PI); /* TODO: FIXME */
+         $$ = Math.PI;}
+    | EMPTYDOUBLEQUOTE
+        {console.log('  empty string in double quotes:'+$EMPTYDOUBLEQUOTE);
+         $$ = yytext;}
+    | EMPTYSINGLEQUOTE
+        {console.log('  EMPTYSINGLEQUOTE:'+$EMPTYSINGLEQUOTE);
+         $$ = '';}
     | STRSINGLE
-        {console.log('\'_'+$STRSINGLE); $$ = $STRSINGLE;}
+        {console.log('  STRSINGLE:'+$STRSINGLE);
+         $$ = $STRSINGLE;}
+    | STRDOUBLE
+        {console.log('  STRDOUBLE:'+$STRDOUBLE);
+         $$ = $STRDOUBLE;}
     ;
