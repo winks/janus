@@ -40,3 +40,11 @@ top:
 		cat ${TDIR}/$${f}; \
 		node ${MYJS} ${TDIR}/$${f}; \
 	done
+
+tvar: TDIR = examples/var
+tvar:
+	for f in `ls $(TDIR)`; do \
+		echo -e "========== $${f} =========="; \
+		cat ${TDIR}/$${f}; \
+		node ${MYJS} ${TDIR}/$${f}; \
+	done
