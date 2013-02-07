@@ -28,9 +28,6 @@
 %left '==' '!='
 %left '<=' '<' '>=' '>'
 %left UMINUS
-/*
-%nonassoc '(' ')'
-*/
 
 %start expressions
 

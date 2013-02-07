@@ -9,6 +9,8 @@ clean:
 generate:
 	${JISON} simple.jison -o ${MYJS}
 
+test: tbase tstrings tstringd top tvar
+
 tstrings: TDIR = examples/strings
 tstrings:
 	for f in `ls $(TDIR)`; do \
