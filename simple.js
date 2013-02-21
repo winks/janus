@@ -9,7 +9,8 @@ performAction: function anonymous(yytext,yyleng,yylineno,yy,yystate,$$,_$) {
 
 var $0 = $$.length - 1;
 switch (yystate) {
-case 1: typeof console !== 'undefined' ? console.log($$[$0-1]) : print($$[$0-1]);
+case 1:
+          typeof console !== 'undefined' ? console.log($$[$0-1]) : print($$[$0-1]); //js
           return $$[$0-1]; 
 break;
 case 2:this.$ = $$[$0-2] != $$[$0];
@@ -24,31 +25,43 @@ case 6:this.$ = $$[$0-2] <= $$[$0];
 break;
 case 7:this.$ = $$[$0-2] < $$[$0];
 break;
-case 8:console.log("  "+$$[$0-2]+" "+" "+$$[$0]);
+case 8:
+         console.log("  "+$$[$0-2]+" "+" "+$$[$0]); //js
          this.$ = ( $$[$0-2] ) || ( $$[$0] );
 break;
-case 9:console.log("  "+$$[$0-2]+" "+$$[$0]);
+case 9:
+         console.log("  "+$$[$0-2]+" "+$$[$0]); //js
          this.$ = $$[$0-2] && $$[$0];
 break;
 case 10:this.$ = -$$[$0];
 break;
 case 11:this.$ = $$[$0-1];
 break;
-case 12:this.$ = Number(yytext);
+case 12:
+         this.$ = Number(yytext); //js
+         //php this.$ = intval(yytext);
+        
 break;
-case 13:console.log("  VAR:"+Math.PI); /* TODO: FIXME */
-         this.$ = Math.PI;
+case 13:
+         console.log("  VAR:"+Math.PI); /* TODO: FIXME */ //js
+         this.$ = Math.PI; //js
+         //php this.$ = M_PI;
+        
 break;
-case 14:console.log('  empty string in double quotes:'+$$[$0]);
+case 14:
+         console.log('  empty string in double quotes:'+$$[$0]); //js
          this.$ = yytext;
 break;
-case 15:console.log('  EMPTYSINGLEQUOTE:'+$$[$0]);
+case 15:
+         console.log('  EMPTYSINGLEQUOTE:'+$$[$0]); //js
          this.$ = '';
 break;
-case 16:console.log('  STRSINGLE:'+$$[$0]);
+case 16:
+         console.log('  STRSINGLE:'+$$[$0]); //js
          this.$ = $$[$0];
 break;
-case 17:console.log('  STRDOUBLE:'+$$[$0]);
+case 17:
+         console.log('  STRDOUBLE:'+$$[$0]); //js
          this.$ = $$[$0];
 break;
 }

@@ -35,7 +35,8 @@
 
 expressions
     : e EOF
-        { typeof console !== 'undefined' ? console.log($1) : print($1);
+        {
+          typeof console !== 'undefined' ? console.log($1) : print($1); //js
           return $1; }
     ;
 
@@ -53,31 +54,46 @@ e
     | e '<' e
         {$$ = $1 < $3;}
     | e '||' e
-        {console.log("  "+$e1+" "+" "+$e2);
+        {
+         console.log("  "+$e1+" "+" "+$e2); //js
          $$ = ( $e1 ) || ( $e2 );}
          /*$$ = ['(',$e1,')', '||', '(', $e2,')'];}*/
     | e '&&' e
-        {console.log("  "+$e1+" "+$e2);
+        {
+         console.log("  "+$e1+" "+$e2); //js
          $$ = $e1 && $e2;}
     | '-' e %prec UMINUS
         {$$ = -$2;}
     | '(' e ')'
         {$$ = $e;}
     | DIGIT
-        {$$ = Number(yytext);}
+        {
+         $$ = Number(yytext); //js
+         //php $$ = intval(yytext);
+        }
     | VAR
-        {console.log("  VAR:"+Math.PI); /* TODO: FIXME */
-         $$ = Math.PI;}
+        {
+         console.log("  VAR:"+Math.PI); /* TODO: FIXME */ //js
+         $$ = Math.PI; //js
+         //php $$ = M_PI;
+        }
     | EMPTYDOUBLEQUOTE
-        {console.log('  empty string in double quotes:'+$EMPTYDOUBLEQUOTE);
+        {
+         console.log('  empty string in double quotes:'+$EMPTYDOUBLEQUOTE); //js
          $$ = yytext;}
     | EMPTYSINGLEQUOTE
-        {console.log('  EMPTYSINGLEQUOTE:'+$EMPTYSINGLEQUOTE);
+        {
+         console.log('  EMPTYSINGLEQUOTE:'+$EMPTYSINGLEQUOTE); //js
          $$ = '';}
     | STRSINGLE
-        {console.log('  STRSINGLE:'+$STRSINGLE);
+        {
+         console.log('  STRSINGLE:'+$STRSINGLE); //js
          $$ = $STRSINGLE;}
     | STRDOUBLE
-        {console.log('  STRDOUBLE:'+$STRDOUBLE);
+        {
+         console.log('  STRDOUBLE:'+$STRDOUBLE); //js
          $$ = $STRDOUBLE;}
     ;
+
+//phpOption parserClass:ExprParser
+//phpOption lexerClass:ExprLexer
