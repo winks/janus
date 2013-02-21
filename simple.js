@@ -11,7 +11,8 @@ var $0 = $$.length - 1;
 switch (yystate) {
 case 1:
           typeof console !== 'undefined' ? console.log($$[$0-1]) : print($$[$0-1]); //js
-          return $$[$0-1]; 
+          return $$[$0-1];
+        
 break;
 case 2:this.$ = $$[$0-2] != $$[$0];
 break;
@@ -28,10 +29,12 @@ break;
 case 8:
          console.log("  "+$$[$0-2]+" "+" "+$$[$0]); //js
          this.$ = ( $$[$0-2] ) || ( $$[$0] );
+        
 break;
 case 9:
          console.log("  "+$$[$0-2]+" "+$$[$0]); //js
          this.$ = $$[$0-2] && $$[$0];
+        
 break;
 case 10:this.$ = -$$[$0];
 break;
@@ -51,18 +54,22 @@ break;
 case 14:
          console.log('  empty string in double quotes:'+$$[$0]); //js
          this.$ = yytext;
+        
 break;
 case 15:
          console.log('  EMPTYSINGLEQUOTE:'+$$[$0]); //js
          this.$ = '';
+        
 break;
 case 16:
          console.log('  STRSINGLE:'+$$[$0]); //js
          this.$ = $$[$0];
+        
 break;
 case 17:
          console.log('  STRDOUBLE:'+$$[$0]); //js
          this.$ = $$[$0];
+        
 break;
 }
 },

@@ -1,13 +1,19 @@
+MYSELF='simple.jison'
 MYJS='simple.js'
+MYPHP='simple.php'
 JISON='./node_modules/.bin/jison'
 
-all: generate
+all: generate php
 
 clean:
 	rm ${MYJS}
 
 generate:
-	${JISON} simple.jison -o ${MYJS}
+	${JISON} ${MYSELF} -o ${MYJS}
+
+php:
+	node ../jison/ports/php/jison.js ${MYSELF}
+	sed -i -e "s/return 'INVALID'/return 'INVALID';/" ${MYPHP}
 
 test: tbase tstrings tstringd top tvar
 

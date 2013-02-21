@@ -37,7 +37,8 @@ expressions
     : e EOF
         {
           typeof console !== 'undefined' ? console.log($1) : print($1); //js
-          return $1; }
+          return $1;
+        }
     ;
 
 e
@@ -56,12 +57,14 @@ e
     | e '||' e
         {
          console.log("  "+$e1+" "+" "+$e2); //js
-         $$ = ( $e1 ) || ( $e2 );}
+         $$ = ( $e1 ) || ( $e2 );
+        }
          /*$$ = ['(',$e1,')', '||', '(', $e2,')'];}*/
     | e '&&' e
         {
          console.log("  "+$e1+" "+$e2); //js
-         $$ = $e1 && $e2;}
+         $$ = $e1 && $e2;
+        }
     | '-' e %prec UMINUS
         {$$ = -$2;}
     | '(' e ')'
@@ -80,19 +83,23 @@ e
     | EMPTYDOUBLEQUOTE
         {
          console.log('  empty string in double quotes:'+$EMPTYDOUBLEQUOTE); //js
-         $$ = yytext;}
+         $$ = yytext;
+        }
     | EMPTYSINGLEQUOTE
         {
          console.log('  EMPTYSINGLEQUOTE:'+$EMPTYSINGLEQUOTE); //js
-         $$ = '';}
+         $$ = '';
+        }
     | STRSINGLE
         {
          console.log('  STRSINGLE:'+$STRSINGLE); //js
-         $$ = $STRSINGLE;}
+         $$ = $STRSINGLE;
+        }
     | STRDOUBLE
         {
          console.log('  STRDOUBLE:'+$STRDOUBLE); //js
-         $$ = $STRDOUBLE;}
+         $$ = $STRDOUBLE;
+        }
     ;
 
 //phpOption parserClass:ExprParser
