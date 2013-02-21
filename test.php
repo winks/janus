@@ -16,5 +16,5 @@ try {
     echo ":RESULT:";
     var_dump($input, $ret);
 } catch (Exception $ex) {
-    echo $ex->printStacktrace();
+    echo $ex->getTraceAsString();
 }

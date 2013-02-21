@@ -1,26 +1,26 @@
 %lex
 %%
 
-\s+                     /* skip */
-[0-9]+                  return 'DIGIT'
-[a-zA-Z][a-zA-Z0-9]+    return 'VAR'
-"''"                         return 'EMPTYSINGLEQUOTE'
-"\"\""                       return 'EMPTYDOUBLEQUOTE'
-"'"(\\\\|\\\'|[^\\\'])+"'"   return 'STRSINGLE'
-"\""(\\\\|\\\"|[^\\\"])+"\"" return 'STRDOUBLE'
-"-"         return '-'
-"!="        return '!='
-"=="        return '=='
-">="        return '>='
-">"         return '>'
-"<="        return '<='
-"<"         return '<'
-"("         return '('
-")"         return ')'
-"&&"        return '&&'
-"||"        return '||'
-<<EOF>>     return 'EOF'
-.           return 'INVALID'
+\s+                             /* skip */
+[0-9]+                          return 'DIGIT'
+[a-zA-Z][a-zA-Z0-9]+            return 'VAR'
+"''"                            return 'EMPTYSINGLEQUOTE'
+"\"\""                          return 'EMPTYDOUBLEQUOTE'
+"'"(\\\\|\\\'|[^\\\'])+"'"      return 'STRSINGLE'
+"\""(\\\\|\\\"|[^\\\"])+"\""    return 'STRDOUBLE'
+"-"                             return '-'
+"!="                            return '!='
+"=="                            return '=='
+">="                            return '>='
+">"                             return '>'
+"<="                            return '<='
+"<"                             return '<'
+"("                             return '('
+")"                             return ')'
+"&&"                            return '&&'
+"||"                            return '||'
+<<EOF>>                         return 'EOF'
+.                               return 'INVALID'
 
 /lex
 
@@ -66,9 +66,13 @@ e
          $$ = $e1 && $e2;
         }
     | '-' e %prec UMINUS
-        {$$ = -$2;}
+        {
+         $$ = -$2;
+        }
     | '(' e ')'
-        {$$ = $e;}
+        {
+         $$ = $e;
+        }
     | DIGIT
         {
          $$ = Number(yytext); //js
