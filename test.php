@@ -1,7 +1,13 @@
 <?php
 require __DIR__ . '/simple.php';
 
-$parser = new ExprParser;
+$lookup = array(
+    'f2o2o3o' => 2.14,
+    'foo23'   => 3.24,
+    'foobar'  => 3.34,
+);
+
+$parser = new ExprParser($lookup);
 
 
 if (!isset($argv[1])) {

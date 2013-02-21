@@ -3,6 +3,7 @@
 
 class Parser
 {
+	var $lookup = array();
 	var $symbols_ = array();
 	var $terminals_ = array();
 	var $productions_ = array();
@@ -11,8 +12,9 @@ class Parser
 	var $version = '0.3.12';
 	var $debug = false;
 
-	function __construct()
+	function __construct($lookup = array())
 	{
+		$this->lookup = $lookup;
 		//ini_set('error_reporting', E_ALL);
 		//ini_set('display_errors', 1);
 		

@@ -82,7 +82,7 @@ e
         {
          console.log(":RESULT:VAR:"+Math.PI); /* TODO: FIXME */ //js
          $$ = Math.PI; //js
-         //php $$ = M_PI;
+         //php $$ = isset($this->lookup[yytext]) ? $this->lookup[yytext] : false;
         }
     | EMPTYDOUBLEQUOTE
         {

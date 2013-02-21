@@ -3,6 +3,7 @@
 
 class ExprParser
 {
+	var $lookup = array();
 	var $symbols_ = array();
 	var $terminals_ = array();
 	var $productions_ = array();
@@ -11,8 +12,9 @@ class ExprParser
 	var $version = '0.3.12';
 	var $debug = false;
 
-	function __construct()
+	function __construct($lookup = array())
 	{
+		$this->lookup = $lookup;
 		//ini_set('error_reporting', E_ALL);
 		//ini_set('display_errors', 1);
 		
@@ -68,16 +70,20 @@ case 9:
          $thisS = $S[$O-2] && $S[$O];
         
 break;
-case 10:$thisS = -$S[$O];
+case 10:
+         $thisS = -$S[$O];
+        
 break;
-case 11:$thisS = $S[$O-1];
+case 11:
+         $thisS = $S[$O-1];
+        
 break;
 case 12:
          $thisS = intval($yytext);
         
 break;
 case 13:
-         $thisS = M_PI;
+         $thisS = isset($this->lookup[$yytext]) ? $this->lookup[$yytext] : false;
         
 break;
 case 14:

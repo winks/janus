@@ -36,9 +36,13 @@ case 9:
          this.$ = $$[$0-2] && $$[$0];
         
 break;
-case 10:this.$ = -$$[$0];
+case 10:
+         this.$ = -$$[$0];
+        
 break;
-case 11:this.$ = $$[$0-1];
+case 11:
+         this.$ = $$[$0-1];
+        
 break;
 case 12:
          this.$ = Number(yytext); //js
@@ -48,7 +52,7 @@ break;
 case 13:
          console.log(":RESULT:VAR:"+Math.PI); /* TODO: FIXME */ //js
          this.$ = Math.PI; //js
-         //php this.$ = M_PI;
+         //php this.$ = isset(this->lookup[yytext]) ? this->lookup[yytext] : false;
         
 break;
 case 14:
