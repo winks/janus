@@ -56,13 +56,13 @@ e
         {$$ = $1 < $3;}
     | e '||' e
         {
-         console.log("  "+$e1+" "+" "+$e2); //js
+         console.log(":RESULT:"+$e1+" "+" "+$e2); //js
          $$ = ( $e1 ) || ( $e2 );
         }
          /*$$ = ['(',$e1,')', '||', '(', $e2,')'];}*/
     | e '&&' e
         {
-         console.log("  "+$e1+" "+$e2); //js
+         console.log(":RESULT:"+$e1+" "+$e2); //js
          $$ = $e1 && $e2;
         }
     | '-' e %prec UMINUS
@@ -76,28 +76,28 @@ e
         }
     | VAR
         {
-         console.log("  VAR:"+Math.PI); /* TODO: FIXME */ //js
+         console.log(":RESULT:VAR:"+Math.PI); /* TODO: FIXME */ //js
          $$ = Math.PI; //js
          //php $$ = M_PI;
         }
     | EMPTYDOUBLEQUOTE
         {
-         console.log('  empty string in double quotes:'+$EMPTYDOUBLEQUOTE); //js
+         console.log(':RESULT:empty string in double quotes:'+$EMPTYDOUBLEQUOTE); //js
          $$ = yytext;
         }
     | EMPTYSINGLEQUOTE
         {
-         console.log('  EMPTYSINGLEQUOTE:'+$EMPTYSINGLEQUOTE); //js
+         console.log(':RESULT:EMPTYSINGLEQUOTE:'+$EMPTYSINGLEQUOTE); //js
          $$ = '';
         }
     | STRSINGLE
         {
-         console.log('  STRSINGLE:'+$STRSINGLE); //js
+         console.log(':RESULT:STRSINGLE:'+$STRSINGLE); //js
          $$ = $STRSINGLE;
         }
     | STRDOUBLE
         {
-         console.log('  STRDOUBLE:'+$STRDOUBLE); //js
+         console.log(':RESULT:STRDOUBLE:'+$STRDOUBLE); //js
          $$ = $STRDOUBLE;
         }
     ;

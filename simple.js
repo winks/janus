@@ -27,12 +27,12 @@ break;
 case 7:this.$ = $$[$0-2] < $$[$0];
 break;
 case 8:
-         console.log("  "+$$[$0-2]+" "+" "+$$[$0]); //js
+         console.log(":RESULT:"+$$[$0-2]+" "+" "+$$[$0]); //js
          this.$ = ( $$[$0-2] ) || ( $$[$0] );
         
 break;
 case 9:
-         console.log("  "+$$[$0-2]+" "+$$[$0]); //js
+         console.log(":RESULT:"+$$[$0-2]+" "+$$[$0]); //js
          this.$ = $$[$0-2] && $$[$0];
         
 break;
@@ -46,28 +46,28 @@ case 12:
         
 break;
 case 13:
-         console.log("  VAR:"+Math.PI); /* TODO: FIXME */ //js
+         console.log(":RESULT:VAR:"+Math.PI); /* TODO: FIXME */ //js
          this.$ = Math.PI; //js
          //php this.$ = M_PI;
         
 break;
 case 14:
-         console.log('  empty string in double quotes:'+$$[$0]); //js
+         console.log(':RESULT:empty string in double quotes:'+$$[$0]); //js
          this.$ = yytext;
         
 break;
 case 15:
-         console.log('  EMPTYSINGLEQUOTE:'+$$[$0]); //js
+         console.log(':RESULT:EMPTYSINGLEQUOTE:'+$$[$0]); //js
          this.$ = '';
         
 break;
 case 16:
-         console.log('  STRSINGLE:'+$$[$0]); //js
+         console.log(':RESULT:STRSINGLE:'+$$[$0]); //js
          this.$ = $$[$0];
         
 break;
 case 17:
-         console.log('  STRDOUBLE:'+$$[$0]); //js
+         console.log(':RESULT:STRDOUBLE:'+$$[$0]); //js
          this.$ = $$[$0];
         
 break;
