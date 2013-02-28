@@ -14,26 +14,46 @@ case 1:
           return $$[$0-1];
         
 break;
-case 2:this.$ = $$[$0-2] != $$[$0];
+case 2:
+         this.$ = $$[$0-2] != $$[$0];
+         //php this.$ = $$[$0-2]." != ".$$[$0];
+        
 break;
-case 3:this.$ = $$[$0-2] == $$[$0];
+case 3:
+         this.$ = $$[$0-2] == $$[$0]; //js
+         //php this.$ = $$[$0-2]." == ".$$[$0];
+        
 break;
-case 4:this.$ = $$[$0-2] >= $$[$0];
+case 4:
+         this.$ = $$[$0-2] >= $$[$0]; //js
+         //php this.$ = $$[$0-2]." >= ".$$[$0];
+        
 break;
-case 5:this.$ = $$[$0-2] > $$[$0];
+case 5:
+         this.$ = $$[$0-2] > $$[$0]; //js
+         //php this.$ = $$[$0-2]." > ".$$[$0];
+        
 break;
-case 6:this.$ = $$[$0-2] <= $$[$0];
+case 6:
+         this.$ = $$[$0-2] <= $$[$0]; //js
+         //php this.$ = $$[$0-2]." <= ".$$[$0];
+        
 break;
-case 7:this.$ = $$[$0-2] < $$[$0];
+case 7:
+         this.$ = $$[$0-2] < $$[$0]; //js
+         //php this.$ = $$[$0-2]." < ".$$[$0];
+        
 break;
 case 8:
          console.log(":RESULT:"+$$[$0-2]+" "+" "+$$[$0]); //js
-         this.$ = ( $$[$0-2] ) || ( $$[$0] );
+         this.$ = ( $$[$0-2] ) || ( $$[$0] ); //js
+         //php this.$ = "( ".$$[$0-2]." ) || ( ".$$[$0]." )";
         
 break;
 case 9:
          console.log(":RESULT:"+$$[$0-2]+" "+$$[$0]); //js
-         this.$ = $$[$0-2] && $$[$0];
+         this.$ = $$[$0-2] && $$[$0]; //js
+         //php this.$ = $$[$0-2]." && ".$$[$0];
         
 break;
 case 10:
@@ -41,18 +61,20 @@ case 10:
         
 break;
 case 11:
-         this.$ = $$[$0-1];
+         this.$ = $$[$0-1]; //js
+         //php this.$ = "( ".$$[$0-1]." )";
         
 break;
 case 12:
          this.$ = Number(yytext); //js
-         //php this.$ = intval(yytext);
+         //php this.$ = yytext;
         
 break;
 case 13:
          console.log(":RESULT:VAR:"+Math.PI); /* TODO: FIXME */ //js
          this.$ = Math.PI; //js
-         //php this.$ = isset(this->lookup[yytext]) ? this->lookup[yytext] : false;
+         // this.$ = isset(this->lookup[yytext]) ? this->lookup[yytext] : false;
+         //php this.$ = 'JANUS.'.yytext.'';
         
 break;
 case 14:

@@ -1,13 +1,7 @@
 <?php
 require __DIR__ . '/simple.php';
 
-$lookup = array(
-    'f2o2o3o' => 2.14,
-    'foo23'   => 3.24,
-    'foobar'  => 3.34,
-);
-
-$parser = new ExprParser($lookup);
+$parser = new ExpressionParser();
 
 
 if (!isset($argv[1])) {
@@ -22,5 +16,5 @@ try {
     echo ":RESULT:";
     var_dump($input, $ret);
 } catch (Exception $ex) {
-    echo $ex->getTraceAsString();
+    echo $ex->getTraceAsString().PHP_EOL;
 }

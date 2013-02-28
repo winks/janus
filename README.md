@@ -17,6 +17,8 @@ This is a small parser that allows the following JavaScript expressions:
   * `'"There", he said.'`
   * `"\"There\", he said."`
 
+and then returns a namespaced javascript expression (foo will become JANUS.foo)
+
 ### Requirements
 
   * [node.js](http://nodejs.org) v0.8.2 (might work with other versions)
@@ -25,7 +27,6 @@ This is a small parser that allows the following JavaScript expressions:
 ### Notes
 
   * The JS part "mocks" variable binding by assuming Math.PI for all variables. The tests reflect this.
-  * We cannot use the original template.php as we need to somehow inject real values.
   * the Makefile expects a jison checkout (commit 40d7bf69e1d83d33e281efb73c8d0c28bcc100df works) at ../jison (used for the php port)
 
 ### Thanks

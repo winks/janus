@@ -43,27 +43,46 @@ expressions
 
 e
     : e '!=' e
-        {$$ = $1 != $3;}
+        {
+         $$ = $1 != $3;
+         //php $$ = $1." != ".$3;
+        }
     | e '==' e
-        {$$ = $1 == $3;}
+        {
+         $$ = $1 == $3; //js
+         //php $$ = $1." == ".$3;
+        }
     | e '>=' e
-        {$$ = $1 >= $3;}
+        {
+         $$ = $1 >= $3; //js
+         //php $$ = $1." >= ".$3;
+        }
     | e '>' e
-        {$$ = $1 > $3;}
+        {
+         $$ = $1 > $3; //js
+         //php $$ = $1." > ".$3;
+        }
     | e '<=' e
-        {$$ = $1 <= $3;}
+        {
+         $$ = $1 <= $3; //js
+         //php $$ = $1." <= ".$3;
+        }
     | e '<' e
-        {$$ = $1 < $3;}
+        {
+         $$ = $1 < $3; //js
+         //php $$ = $1." < ".$3;
+        }
     | e '||' e
         {
          console.log(":RESULT:"+$e1+" "+" "+$e2); //js
-         $$ = ( $e1 ) || ( $e2 );
+         $$ = ( $e1 ) || ( $e2 ); //js
+         //php $$ = "( ".$1." ) || ( ".$3." )";
         }
-         /*$$ = ['(',$e1,')', '||', '(', $e2,')'];}*/
     | e '&&' e
         {
          console.log(":RESULT:"+$e1+" "+$e2); //js
-         $$ = $e1 && $e2;
+         $$ = $e1 && $e2; //js
+         //php $$ = $e1." && ".$e2;
         }
     | '-' e %prec UMINUS
         {
@@ -71,18 +90,20 @@ e
         }
     | '(' e ')'
         {
-         $$ = $e;
+         $$ = $e; //js
+         //php $$ = "( ".$e." )";
         }
     | DIGIT
         {
          $$ = Number(yytext); //js
-         //php $$ = intval(yytext);
+         //php $$ = yytext;
         }
     | VAR
         {
          console.log(":RESULT:VAR:"+Math.PI); /* TODO: FIXME */ //js
          $$ = Math.PI; //js
-         //php $$ = isset($this->lookup[yytext]) ? $this->lookup[yytext] : false;
+         // $$ = isset($this->lookup[yytext]) ? $this->lookup[yytext] : false;
+         //php $$ = 'JANUS.'.yytext.'';
         }
     | EMPTYDOUBLEQUOTE
         {
@@ -106,5 +127,4 @@ e
         }
     ;
 
-//phpOption parserClass:ExprParser
-//phpOption lexerClass:ExprLexer
+//phpOption parserClass:ExpressionParser
