@@ -1,7 +1,8 @@
-MYSELF='simple.jison'
-MYJS='simple.js'
-MYPHP='simple.php'
+MYSELF='ExpressionParser.jison'
+MYJS='ExpressionParser.js'
+MYPHP='ExpressionParser.php'
 JISONBIN='./node_modules/.bin/jison'
+JISONPHP='../jison/ports/php/jison.js'
 PHPBIN='php'
 NODEBIN='node'
 PTEST='test.php'
@@ -16,7 +17,7 @@ js:
 	${JISONBIN} ${MYSELF} -o ${MYJS}
 
 php:
-	${NODEBIN} ../jison/ports/php/jison.js ${MYSELF}
+	${NODEBIN} ${JISONPHP} ${MYSELF}
 	sed -i -e "s/return 'INVALID'/return 'INVALID';/" ${MYPHP}
 
 test: tbase tstrings tstringd top tvar

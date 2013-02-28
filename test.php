@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/simple.php';
+require __DIR__ . '/ExpressionParser.php';
 
 $parser = new ExpressionParser();
 
