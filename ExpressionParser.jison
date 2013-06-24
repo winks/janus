@@ -3,7 +3,7 @@
 
 \s+                             /* skip */
 [0-9]+                          return 'DIGIT'
-[a-zA-Z][a-zA-Z0-9]+            return 'VAR'
+[a-zA-Z][a-zA-Z0-9_]+           return 'VAR'
 "''"                            return 'EMPTYSINGLEQUOTE'
 "\"\""                          return 'EMPTYDOUBLEQUOTE'
 "'"(\\\\|\\\'|[^\\\'])+"'"      return 'STRSINGLE'
