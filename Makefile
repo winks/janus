@@ -19,6 +19,8 @@ js:
 php:
 	${NODEBIN} ${JISONPHP} ${MYSELF}
 	sed -i -e "s/return 'INVALID'/return 'INVALID';/" ${MYPHP}
+	sed -i -e 's/$$this->setInput($$input);/$$this->setInput($$input." ");/' ${MYPHP}
+	php -l ${MYPHP}
 
 test: tbase tstrings tstringd top tvar
 
