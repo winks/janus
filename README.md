@@ -33,3 +33,7 @@ and then returns a namespaced javascript expression (foo will become JANUS.foo)
 
   * [Jison](http://jison.org) for being awesome
   * Obeliks for fixing the last parser bug :P
+
+### License
+
+BSD
